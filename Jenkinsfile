@@ -1,8 +1,7 @@
 pipeline {
     agent any
     parameters {
-            choice(name: 'version', choices: ['1.1','1.2','1.3'], description: 'build versions')
-            booleanValues(name: 'executeTest', defaultValue: true)
+           string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
     stages {
         stage('Build') {
@@ -23,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                echo "deploying version ${params.version}"
+                echo "${params.Greeting} hello"
             }
         }
     }
