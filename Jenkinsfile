@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-           string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+           choice(name: 'version', choices:['1.2', '1.3'], description: '')
     }
     stages {
         stage('Build') {
@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                echo "${params.Greeting} hello"
+                echo "deploying versions ${params.Greeting}"
             }
         }
     }
