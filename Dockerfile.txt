@@ -1,0 +1,2 @@
+FROM --platform=arm64nginx:latext
+COPY . /usr/share/nginx/html
